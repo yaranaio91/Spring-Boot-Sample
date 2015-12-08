@@ -8,7 +8,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @EnableAutoConfiguration
-@Import({ ThymeleafConfig.class, WebMvcConfig.class })
+@Import({ ThymeleafConfig.class, WebMvcConfig.class, TomcatConfig.class })
 @ComponentScan(basePackages = { "sample.controller", "sample.service" })
 public class Application {
 
