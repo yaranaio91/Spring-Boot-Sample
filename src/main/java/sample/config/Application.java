@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 @Configuration
 @EnableAutoConfiguration
 @Import({ ThymeleafConfig.class, WebMvcConfig.class, TomcatConfig.class,
-		JDBCConfig.class })
+		JDBCConfig.class, BeanValidationConfig.class })
 @ComponentScan(basePackages = { "sample.controller", "sample.service",
 		"sample.dao" })
 public class Application {

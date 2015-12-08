@@ -20,6 +20,15 @@
 
             <div class="content">
                 <h1>Login</h1>
+                <th:block th:if="${#fields.hasErrors('${inputParam.*}')}">
+                    <div class="alert alert-dismissable" th:classappend="'alert-danger'">
+                        <ul>
+                            <li th:each="err : ${#fields.errors('${inputParam.*}')}" th:text="${err}">Input is incorrect</li>
+                        </ul>
+                        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+                    </div>
+                </th:block>
+
                 <div class="form-horizontal">
                     <div class="form-group">
                         <label for="name" class="col-xs-2 control-label">User ID</label>

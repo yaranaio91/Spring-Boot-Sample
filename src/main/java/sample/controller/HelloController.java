@@ -1,9 +1,14 @@
 package sample.controller;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -23,12 +28,11 @@ public class HelloController {
 	}
 
 	@RequestMapping(path = { "", "/", "index.html" }, method = RequestMethod.POST)
-	public String login(Model model, InputParam param) {
+	public String login(Model model, @Valid InputParam param, Errors errors) {
 
 		model.addAttribute(param);
 
-		// TODO 入力チェック BeanValidatorでやる
-		if (param.password == null || param.id == null) {
+		if (errors.hasErrors()) {
 			return "index";
 		}
 
@@ -38,7 +42,9 @@ public class HelloController {
 
 	public static class InputParam {
 
+		@NotNull
 		Integer id;
+		@NotBlank
 		String password;
 
 		public Integer getId() {
