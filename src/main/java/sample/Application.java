@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan(basePackages = { "sample.controller" })
+@ComponentScan(basePackages = { "sample.controller", "sample.service" })
 public class Application {
 
 	public static void main(String[] args) throws Exception {
