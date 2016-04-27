@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @EnableAutoConfiguration
 @ComponentScan(basePackages = { "sample.controller", "sample.service" })
+//コンポーネントスキャンでパッケージを設定してる。これで言ってるパッケージをスプリングが設定してくれてる。
 public class Application {
 
 	public static void main(String[] args) throws Exception {

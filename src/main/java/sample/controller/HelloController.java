@@ -12,6 +12,8 @@ import sample.service.HelloService;
 public class HelloController {
 
 	@Autowired
+	//インスタンスに勝手に入れてくれる
+	//依存するオブジェクトを外から注入してくれる=DI
 	HelloService helloService;
 
 	@RequestMapping(path = "/", method = RequestMethod.GET)
